@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login Form </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="javascripts/main.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller='myctrl'>
+  <!-- /login-section -->
+
+  <section class="w3l-forms-23">
+    <div class="forms23-block-hny">
+      <div class="wrapper">
+        <h1>Login Form</h1>
+        <!-- if logo is image enable this   
+					<a class="logo" href="index.html">
+					  <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+					</a> 
+				-->
+        <div class="d-grid forms23-grids">
+          <div class="form23">
+            <div class="main-bg">
+              <h6 class="sec-one">John Doe</h6>
+              <div class="speci-login first-look">
+                <img src="images/user.png" alt="" class="img-responsive">
+              </div>
+            </div>
+            <div class="bottom-content">
+              <form>
+                <input type="text" name="email" class="input-form" placeholder="Your Email" ng-model='log.Email'
+                  required />
+                <input type="password" name="password" class="input-form" placeholder="Your Password"
+                  ng-model='log.Password' required />
+                <button type="button" class="loginhny-btn btn" ng-click="login(log)">Login</button>
+              </form>
+              <p>Not a member yet? <a href="#">Join Now!</a></p>
+              <a href="/verify">Forgot Password</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

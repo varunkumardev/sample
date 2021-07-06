@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration Form</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- angular cdn link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="/stylesheets/main.css"> -->
+    <script src="/javascripts/home.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl" ng-init='getfetch()'>
+    <div class="container">
+        <h1>Welcome <%=user.First_Name%></h1></br>
+        <a href="/logout"><button class="btn btn-danger">Logout</button></a>
+    </div><br>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="container col-md-2">
+            <form action="/profile" method="post" enctype="multipart/form-data">
+            <input type="text" class="form-control" placeholder="Enter name" ng-model='new.name' required=""><br>
+            <label for="file">Upload:</label>
+            <input type="file" class="form-control" id="file" name="file" placeholder="Enter name" required=""><br>
+            <button class="btn btn-primary" type="submit" ng-click="home(new)">Submit</button>
+        </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ft in fetch">
+                    <td>{{ft.name}}</td>
+                    <td>
+                        <button class="btn btn-warning" ng-if="ft.Status=='pending'"
+                            ng-click='status(ft)'>{{ft.Status}}</button>
+                        <button class="btn btn-success" ng-if="ft.Status=='completed'"
+                            ng-model="ft.pend">{{ft.Status}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+
+</html>

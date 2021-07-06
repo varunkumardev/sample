@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetched Data</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- angular cdn link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script src="/javascripts/main.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl" ng-init='getdata()'>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Sl_No</th>
+                <th>First_Name</th>
+                <th>Last_Name</th>
+                <th>Sur_Name</th>
+                <th>Date</th>
+                <th>month</th>
+                <th>year</th>
+                <th>Gender</th>
+                <th>Mail Id</th>
+                <th>Phone_Number</th>
+                <th>New_Password</th>
+                <th>Confirm_Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in userdata">
+                <td>{{$index+1}}</td>
+                <td>{{x.First_Name}}</td>
+                <td>{{x.Last_Name}}</td>
+                <td>{{x.Surname}}</td>
+                <td>{{x.Date}}</td>
+                <td>{{x.Month}}</td>
+                <td>{{x.Year}}</td>
+                <td>{{x.Gender}}</td>
+                <td>{{x.Email}}</td>
+                <td>{{x.Phone_Number}}</td>
+                <td>{{x.Password}}</td>
+                <td>{{x.Confirm_Password}}</td>
+                <td><button type="button" class="btn btn-danger" ng-click='delete(x,$index)'>Delete</button></td>
+                <td><button type="button" class="btn btn-warning">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

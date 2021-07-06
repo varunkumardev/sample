@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- angular cdn link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <link rel="stylesheet" href="/stylesheets/forget.css">
+  <script src="/javascripts/forget.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller='mycntrl'>
+  <div class="container">
+
+    <form class="form-signin">
+
+      <label for="inputEmail" class="sr-only">Username</label>
+      <i class="glyphicon glyphicon-user"></i>
+      <input type="text" class="form-control" placeholder="Username or Email" required="" autofocus=""
+        ng-model='forget.Email'><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" ng-show="otp" ng-click="checkmail(forget)">Send
+        OTP</button><br>
+
+
+      <label for="inputPassword" class="sr-only">Password</label>
+      <i class="glyphicon glyphicon-ok-circle" ng-show='hide'></i>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Enter Otp" ng-show="hide"
+        ng-model='forget.otp' required=""><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" ng-show="hide"
+        ng-click="verifyotp(forget)">Verify</button>
+      <br />
+      <input type="text" id="inputPassword" class="form-control" placeholder="Enter New Password" ng-show="pass"
+        ng-model='forget.pass' required=""><br>
+      <input type="text" id="inputPassword" class="form-control" placeholder="Confirm Password" ng-show="pass"
+        ng-model='forget.cpass' required=""><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" ng-show="pass"
+        ng-click="password(forget)">Submit</button>
+    </form>
+
+  </div>
+</body>
+
+</html>
